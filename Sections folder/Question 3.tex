@@ -1,0 +1,51 @@
+\section{Model Framework}
+
+\subsection{Setup}
+
+The household consists of two members $j \in \{1,2\}$ over a finite working life $t = 1, \dots, T$.
+Each period they jointly choose consumption, hours of work, and savings.
+The state variables are household wealth $A_t$ and each member's human capital stock $k_{j,t}$.
+
+\subsection{Household Problem}
+
+\paragraph{Wages.} Earnings capacity depends on accumulated human capital:
+\begin{equation}
+    w_{j,t} = \exp\!\bigl(\bar{w}_j + \alpha_j \, k_{j,t}\bigr),
+\end{equation}
+where $\bar{w}_j$ is a gender-specific wage intercept and $\alpha_j \geq 0$ is the return to human capital.
+
+\paragraph{Human capital.} Hours worked serve as on-the-job investment:
+\begin{equation}
+    k_{j,t+1} = (1-\delta)\,k_{j,t} + h_{j,t}, \qquad \delta \in (0,1).
+\end{equation}
+
+\paragraph{Preferences.} Each member has instantaneous utility over private consumption $c_{j,t}$ and hours $h_{j,t} \in [0,1]$:
+\begin{equation}
+    u_j(c_{j,t},\, h_{j,t}) \;=\; \frac{c_{j,t}^{1+\eta}}{1+\eta} \;-\; \rho_j\,\frac{h_{j,t}^{1+\gamma}}{1+\gamma},
+\end{equation}
+where $\rho_j$ captures gender-specific disutility of labor and $\gamma > 0$ governs the Frisch elasticity.
+
+\paragraph{Budget constraint.} Total consumption plus savings equals after-tax household income:
+\begin{equation}
+    c_{1,t} + c_{2,t} + A_{t+1} \;=\; (1+r)\,A_t \;+\; Y^{\text{net}}_t,
+\end{equation}
+where after-tax income depends on the tax regime:
+\begin{align}
+    Y^{\text{joint}}_t  &= \bigl[1 - \tau(w_{1,t}h_{1,t} + w_{2,t}h_{2,t})\bigr]\,(w_{1,t}h_{1,t} + w_{2,t}h_{2,t}), \\
+    Y^{\text{indiv}}_t  &= \bigl[1-\tau(w_{1,t}h_{1,t})\bigr]\,w_{1,t}h_{1,t} \;+\; \bigl[1-\tau(w_{2,t}h_{2,t})\bigr]\,w_{2,t}h_{2,t}.
+\end{align}
+Here $\tau(\cdot)$ is a progressive marginal tax schedule.
+Under joint taxation the secondary earner's income enters the household total and is taxed at the household's top bracket; under individual taxation each earner faces their own marginal rate.
+
+\paragraph{Value function.} The household maximizes discounted joint utility with equal Pareto weights:
+\begin{equation}
+    V_t(A_t, k_{1,t}, k_{2,t}) \;=\; \max_{c_1,\, c_2,\, h_1,\, h_2,\, A_{t+1}}
+    \Bigl[\, u_1 + u_2 \;+\; \beta\, V_{t+1}(A_{t+1}, k_{1,t+1}, k_{2,t+1}) \,\Bigr],
+\end{equation}
+solved by backward induction from the terminal period $T$.
+
+\subsection{Equilibrium}
+
+The tax schedule $\tau(\cdot)$ is taken as exogenous and regime-specific.
+A revenue-neutral comparison sets the individual-tax schedule to raise the same total revenue as the joint-tax baseline, ensuring that any behavioral differences reflect the structure of taxation rather than its level.
+The key mechanism is that switching to individual taxation lowers the effective marginal rate on the secondary earner, raising her labor supply and --- through equation~(2) --- her human capital and future wages, amplifying the initial effect over the life cycle.
