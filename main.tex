@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}
+
+% ---------- BASIC ENCODING / LANGUAGE ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% ---------- LAYOUT ----------
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=3cm,bottom=3cm}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- MATH / TABLES / FIGURES ----------
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+% ---------- CODE / COLORS ----------
+\usepackage{listings}
+\usepackage{xcolor}
+
+% ---------- QUOTES / UNICODE ----------
+\usepackage{csquotes}
+\usepackage{newunicodechar}
+\newunicodechar{≈}{\ensuremath{\approx}} % safe (math mode)
+
+% ---------- TIKZ ----------
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta}
+\tikzset{
+  startstop/.style={rectangle,rounded corners,minimum width=3cm,minimum height=1cm,
+                    text centered,draw=black,fill=gray!20},
+  process/.style={rectangle,minimum width=3cm,minimum height=1cm,
+                  text centered,draw=black,fill=gray!10},
+  decision/.style={diamond,aspect=2,minimum width=3cm,minimum height=1cm,
+                   text centered,draw=black,fill=gray!10},
+  arrow/.style={thick,-{Stealth}}
+}
+
+% ---------- REFERENCES (optional) ----------
+\usepackage[numbers]{natbib}
+
+% ---------- URL/HYPERLINKS (ORDER MATTERS) ----------
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% ---------- HEADER/FOOTER ----------
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{kbr344}
+\fancyfoot[C]{\thepage\ of \pageref{LastPage}}
+
+% ---------- DOCUMENT ----------
+\begin{document}
+
+
+\input{Sections folder/Front page}
+\pagenumbering{arabic} % Aktiver sidetal
+\input{Sections folder/Question 1}
+\input{Sections folder/Question 2}
+\input{Sections folder/Question 3}
+\input{Sections folder/Question 4}
+\input{Sections folder/Question 5}
+\input{Sections folder/Appendix}
+\end{document}
